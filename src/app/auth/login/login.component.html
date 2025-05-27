@@ -1,0 +1,40 @@
+<mat-card class="login-card">
+  <mat-card-title class="login-card-title">Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="Enter your email" />
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+          Email is **required**
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Enter your password" />
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+          Password is **required**
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit"  class="login-button">
+        Login
+      </button>
+
+        <div class="login-link" style="margin-top: 15px;">
+  dont't have an account?
+  <button mat-button color="primary" routerLink="/signup" type="button">Go to Sign Up</button>
+</div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

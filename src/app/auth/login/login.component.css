@@ -1,0 +1,50 @@
+/* login.component.css */
+
+.login-card {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+  background-color: #ffffff; 
+}
+
+.login-card-title {
+  text-align: center;
+  color: #3f51b5; 
+  margin-bottom: 25px;
+  font-size: 28px; 
+  font-weight: 600;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px; 
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 18px; 
+  border-radius: 5px; 
+  margin-top: 10px;
+}
+
+.error-message {
+  color: #f44336; 
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif; 
+  background-color: #f0f2f5; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}

@@ -1,0 +1,42 @@
+.home-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.center-spinner {
+  display: block;
+  margin: 50px auto;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.book-card:hover {
+  
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.no-books {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
