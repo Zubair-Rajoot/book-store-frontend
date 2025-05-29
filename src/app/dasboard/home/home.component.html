@@ -1,5 +1,5 @@
 <div class="home-container">
-  <h2 class="title"> Books Collection</h2>
+  <h2 class="title">Books Collection</h2>
 
   <mat-spinner *ngIf="loading" class="center-spinner"></mat-spinner>
 
@@ -7,13 +7,25 @@
     <mat-card class="book-card" *ngFor="let book of books">
       <mat-card-header>
         <mat-card-title>{{ book.title }}</mat-card-title>
-        <!-- <mat-card-subtitle>{{ book.author }}</mat-card-subtitle> -->
       </mat-card-header>
       <mat-card-content>
         <p>{{ book.description || 'No description available.' }}</p>
       </mat-card-content>
+
+      <button mat-raised-button color="primary" class="add-button" 
+              (click)="navigateToOrder(book._id)">
+        Borrow Book
+      </button>
     </mat-card>
   </div>
 
   <p *ngIf="!loading && books.length === 0" class="no-books">No books found.</p>
+
+  <mat-paginator
+    *ngIf="!loading && totalBooks > pageSize"
+    [length]="totalBooks"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
 </div>

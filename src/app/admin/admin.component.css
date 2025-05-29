@@ -1,0 +1,108 @@
+.home-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+.center-spinner {
+  display: block;
+  margin: 2rem auto;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.book-card {
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #333;
+}
+
+mat-card-content p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+mat-form-field {
+  margin-top: 0.5rem;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #00796b;
+  margin: 2rem 0 1rem;
+}
+
+.no-books {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+
+.order-card {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-card mat-card-content {
+  padding: 0.5rem;
+}
+
+.order-card p {
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+.order-card strong {
+  color: #333;
+}
+
+.order-card ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.order-card li {
+  margin-bottom: 0.25rem;
+}

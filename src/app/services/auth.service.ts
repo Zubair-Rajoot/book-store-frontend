@@ -1,25 +1,4 @@
-// import { HttpClient } from '@angular/common/http';
-// import { Injectable } from '@angular/core';
-// import  {environment}  from '../../environments/environment';
-// import { Observable } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class AuthService {
-//   private baseUrl = `${environment.apiBaseUrl}/auth`;
-
-
-//   constructor(private http: HttpClient) {}
-
-//    login(credentials: { email: string; password: string }): Observable<{ token: string }>{
-//     return this.http.post<{token: string}>(`${this.baseUrl}/login`, credentials);
-//   }
-
-//   signup(data: any) {
-//     return this.http.post(`${this.baseUrl}/register`, data);
-//   }
-// }
 
 
 
@@ -41,13 +20,18 @@ export class AuthService {
     private router: Router
   ) {}
 
-  login(credentials: { email: string, password: string }): Observable<any> {
-    return this.http.post(`${environment.apiBaseUrl}/auth/login`, credentials).pipe(
-      tap((response: any) => {
-        localStorage.setItem('access_token', response.token);
-      })
-    );
-  }
+ 
+
+  login(credentials: { email: string, password: string }): Observable<{ token: string }> {
+  return this.http.post<{ token: string }>(`${environment.apiBaseUrl}/auth/login`, credentials).pipe(
+    tap((response) => {
+      localStorage.setItem('access_token', response.token);
+      const decodedToken = this.jwtHelper.decodeToken(response.token);
+      console.log('User role:', decodedToken.role); // For debugging
+    })
+  );
+}
+
 
   signup(userData: { email: string, password: string, name: string }): Observable<any> {
     return this.http.post(`${environment.apiBaseUrl}/auth/register`, userData);
@@ -69,14 +53,14 @@ export class AuthService {
     
     try {
       const decoded = this.jwtHelper.decodeToken(token);
-      return decoded?.role === 'admin';
+      return decoded?.isAdmin === 'admin';
     } catch {
       return false;
     }
   };
 
 
-  
+
 
   getCurrentUserId(): string | null {
     const token = localStorage.getItem('access_token');

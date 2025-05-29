@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
-
-
+import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +11,37 @@ import { TodoService } from '../../services/todo.service';
 export class HomeComponent implements OnInit {
   books: any[] = [];
   loading = true;
+  totalBooks = 0;
+  currentPage = 0; 
+  pageSize = 5;
 
-  constructor(private todoService: TodoService) {}
+  
+  constructor(
+    private todoService: TodoService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.todoService.getAllBooks().subscribe((res: any) => {
-      this.books = res?.data || res;
+    this.getBooks();
+  }
+
+  getBooks() {
+    this.loading = true;
+    this.todoService.getAllBooks(this.currentPage + 1, this.pageSize).subscribe((res: any) => {
+      this.books = res.books;
+      this.totalBooks = res.totalBooks;
       this.loading = false;
     });
   }
-}
 
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getBooks();
+  }
+
+  navigateToOrder(bookId: string) {
+    this.router.navigate(['/order', bookId]);
+  }
+}
 

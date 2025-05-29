@@ -1,8 +1,3 @@
-// import { CanActivateFn } from '@angular/router';
-
-// export const adminGuard: CanActivateFn = (route, state) => {
-//   return true;
-// };
 
 
 import { Injectable } from '@angular/core';
@@ -19,10 +14,11 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     if (this.authService.isAdmin()) {
+      this.router.navigate(['/admin']);
       return true;
     } else {
       this.router.navigate(['/home']);
       return false;
     }
   }
-}
+}   

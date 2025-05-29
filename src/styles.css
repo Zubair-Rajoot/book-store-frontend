@@ -1,4 +1,103 @@
-/* You can add global styles to this file, and also import other style files */
+/* Toast container positioning */
+#toast-container.toast-top-right {
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  position: fixed !important;
+  z-index: 999999 !important;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Individual toast styling */
+#toast-container > div {
+  width: auto !important;
+  max-width: 350px;
+  padding: 15px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  min-height: unset;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  margin-bottom: 15px;
+}
+
+/* Toast content alignment */
+.toast-message {
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+/* Close button styling */
+.toast-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: none;
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.toast-close-button:hover {
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Progress bar styling */
+.toast-progress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Success toast */
+.toast-success {
+  background-color: #38a169 !important;
+  color: white !important;
+  border-left: 4px solid #2f855a;
+}
+
+.toast-success .toast-title {
+  font-weight: 600;
+}
+
+/* Error toast */
+.toast-error {
+  background-color: #e53e3e !important;
+  color: white !important;
+  border-left: 4px solid #c53030;
+}
+
+/* Info toast */
+.toast-info {
+  background-color: #3182ce !important;
+  color: white !important;
+  border-left: 4px solid #2c5282;
+}
+
+/* Warning toast */
+.toast-warning {
+  background-color: #dd6b20 !important;
+  color: white !important;
+  border-left: 4px solid #c05621;
+}
+
+/* Icon styling */
+.toast-icon {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+/* Hover effect */
+#toast-container > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
