@@ -25,6 +25,9 @@ import { OrderComponent } from './order/order.component';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HighlightDirective } from './directives/highlight.directive';
+import { BorrowDurationPipe } from './pipes/borrow-duration.pipe';
+
 
 
 @NgModule({
@@ -35,6 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminComponent,
     HeaderComponent,
     OrderComponent,
+    HighlightDirective,
+    BorrowDurationPipe
   ],
   imports: [
     BrowserModule,
@@ -70,8 +75,6 @@ import { MatNativeDateModule } from '@angular/material/core';
   progressAnimation: 'decreasing'
 }),
 
-
-    
 
   ],
   providers: [

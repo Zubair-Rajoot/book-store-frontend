@@ -78,7 +78,12 @@
         <p><strong>Borrow Period:</strong> 
           {{ order.borrowFrom | date }} to {{ order.borrowTo | date }}
         </p>
-        <p><strong>Order Date:</strong> {{ order.createdAt | date }}</p>
+        <p><strong>Order Date:</strong> {{ order.createdAt | date:'dd MMM' }}</p>
+        <p><strong>Borrow Period:</strong> 
+ 
+         ({{ order.borrowFrom | borrowDuration:order.borrowTo }})
+</p>
+
       </mat-card-content>
     </mat-card>
   </div>

@@ -4,12 +4,12 @@
   <mat-spinner *ngIf="loading" class="center-spinner"></mat-spinner>
 
   <div *ngIf="!loading && books.length > 0" class="card-list">
-    <mat-card class="book-card" *ngFor="let book of books">
+    <mat-card class="book-card" appHighlight *ngFor="let book of books">
       <mat-card-header>
-        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-title>{{ book.title | uppercase }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>{{ book.description || 'No description available.' }}</p>
+        <p>{{ book.description || 'No description available.' | uppercase }}</p>
       </mat-card-content>
 
       <button mat-raised-button color="primary" class="add-button" 
