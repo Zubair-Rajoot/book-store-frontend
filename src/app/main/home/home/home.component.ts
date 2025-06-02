@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../../services/todo.service';
+import { TodoService } from '../../../services/todo.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 
@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.loading = true;
     this.todoService.getAllBooks(this.currentPage + 1, this.pageSize).subscribe((res: any) => {
       this.books = res.books;
+      console.log('Books:', this.books);
       this.totalBooks = res.totalBooks;
       this.loading = false;
     });

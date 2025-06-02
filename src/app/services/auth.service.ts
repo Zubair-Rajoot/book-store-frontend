@@ -1,7 +1,3 @@
-
-
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -20,14 +16,13 @@ export class AuthService {
     private router: Router
   ) {}
 
- 
 
   login(credentials: { email: string, password: string }): Observable<{ token: string }> {
   return this.http.post<{ token: string }>(`${environment.apiBaseUrl}/auth/login`, credentials).pipe(
     tap((response) => {
       localStorage.setItem('access_token', response.token);
       const decodedToken = this.jwtHelper.decodeToken(response.token);
-      console.log('User role:', decodedToken.role); // For debugging
+   
     })
   );
 }
@@ -36,6 +31,7 @@ export class AuthService {
   signup(userData: { email: string, password: string, name: string }): Observable<any> {
     return this.http.post(`${environment.apiBaseUrl}/auth/register`, userData);
   }
+
 
   logout(): void {
     localStorage.removeItem('access_token');
@@ -58,8 +54,6 @@ export class AuthService {
       return false;
     }
   };
-
-
 
 
   getCurrentUserId(): string | null {

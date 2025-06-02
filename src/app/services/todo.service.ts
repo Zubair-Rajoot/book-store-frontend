@@ -31,6 +31,7 @@ export class TodoService {
     return this.http.post<Book>(`${this.baseUrl}/create`, data);
   }
 
+  
   updateBook(id: string, data: Partial<Book>): Observable<Book> {
     return this.http.put<Book>(`${this.baseUrl}/update/${id}`, data);
   }

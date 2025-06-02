@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../services/todo.service';
-import { Book } from '../models/book.model'; 
+import { TodoService } from '../../../services/todo.service';
+import { Book } from '../../../models/book.model'; 
 
 import { PageEvent } from '@angular/material/paginator';
 
@@ -80,8 +80,10 @@ getOrders() {
       this.totalOrders = res.totalOrders;
       this.loading = false;
       this.showOrders = true;
+      this.toastr.success('Orders loaded successfully', 'Load Orders');
     },
     (error) => {
+      this.toastr.error('Failed to load orders', 'Error');
       
       this.loading = false;
     }
